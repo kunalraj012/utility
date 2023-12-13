@@ -17,6 +17,7 @@ export default function TextForm(props) {
   // setText ("new text"); // Correct way to change the state
 
   return (
+    <>
         <div>
             <h1>{props.heading}</h1>
             <div className="mb-3">
@@ -24,5 +25,13 @@ export default function TextForm(props) {
             </div>
             <button className="btn btn-primary" onClick={handleupClick}>Convert to Uppercase</button>
         </div>
+        <div className="container my-3">
+            <h1>Your text summary</h1>
+            <p>{text.split (" ").length} words and {text.length} characters</p>
+            <p>{0.008 * text.split (" ").length} Minutes read</p>
+            <h2>Preview</h2>
+            <p>{text}</p>
+        </div>
+        </>
   )
 }
