@@ -19,6 +19,13 @@ export default function TextForm(props) {
         // console.log("On change");
         setText(event.target.value);
     }
+    const handleCopyClick = () => {
+        console.log("I am Copy");
+        var text = document.getElementById('myBox');
+        text.select();
+        navigator.clipboard.writeText(text.value);
+    }
+
   const [text, setText] = useState("");
   
   // text = "new text"; // Wrong way to change the state
@@ -31,9 +38,10 @@ export default function TextForm(props) {
             <div className="mb-3">
             <textarea className="form-control" value={text} onChange={handleOnChange} id="myBox" rows="8"></textarea>
             </div>
-            <button className="btn btn-info mx-2" onClick={handleupClick}>Convert to Uppercase</button>
-            <button className="btn btn-info mx-2" onClick={handleLoClick}>Convert to Lowercase</button>
-            <button className="btn btn-info mx-2" onClick={handleClearup}>Clear</button>
+            <button className="btn btn-info mx-2 px-5" onClick={handleupClick}>Convert to Uppercase</button>
+            <button className="btn btn-info mx-2 px-5" onClick={handleLoClick}>Convert to Lowercase</button>
+            <button className="btn btn-info mx-2 px-5" onClick={handleClearup}>Clear</button>
+            <button className="btn btn-info mx-2 px-5" onClick={handleCopyClick}>Copy Text</button>
         </div>
         <div className="container my-3">
             <h2>Your text summary</h2>
